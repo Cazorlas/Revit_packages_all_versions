@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <NoWarn>$(NoWarn);NU5128;NU5100</NoWarn>
     <PackageId>Revit_packages_all_versions</PackageId>
     <PackageReleaseYear Condition="'$(PackageReleaseYear)' == ''">2024</PackageReleaseYear>
