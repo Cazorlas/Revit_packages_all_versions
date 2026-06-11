@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <RevitVersion Condition="'$(RevitVersion)' == ''">2024</RevitVersion>
+    <RevitVersion Condition="'$(RevitVersion)' == ''">2026</RevitVersion>
     <_RevitPackageVersionDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\revit\$(RevitVersion)'))</_RevitPackageVersionDir>
     <DefineConstants>$(DefineConstants);REVIT$(RevitVersion)</DefineConstants>
   </PropertyGroup>
