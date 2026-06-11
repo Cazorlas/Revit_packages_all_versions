@@ -45,7 +45,7 @@ RevitPackagesAllVersions.sln
 
 Versioning convention:
 
-- `2022.0.1`: current package release for Revit 2022
+- `2022.0.2`: current package release for Revit 2022
 - `2023.0.1`: next package line for Revit 2023 when that DLL set is ready
 - `2024.0.1`: same pattern for Revit 2024 and later
 

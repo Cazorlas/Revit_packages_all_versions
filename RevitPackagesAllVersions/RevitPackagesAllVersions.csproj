@@ -9,17 +9,20 @@
     <PackageId>Revit_packages_all_versions</PackageId>
     <PackageReleaseYear Condition="'$(PackageReleaseYear)' == ''">2022</PackageReleaseYear>
     <PackageReleaseMinor Condition="'$(PackageReleaseMinor)' == ''">0</PackageReleaseMinor>
-    <PackageReleasePatch Condition="'$(PackageReleasePatch)' == ''">1</PackageReleasePatch>
+    <PackageReleasePatch Condition="'$(PackageReleasePatch)' == ''">2</PackageReleasePatch>
     <Version Condition="'$(Version)' == ''">$(PackageReleaseYear).$(PackageReleaseMinor).$(PackageReleasePatch)</Version>
     <Authors>PaperEngineer</Authors>
     <Company>PaperEngineer</Company>
+    <Copyright>Copyright (c) PaperEngineer</Copyright>
     <Description>Year-versioned Revit API DLL bundle package. Set RevitVersion in the consuming project to select version-specific Autodesk DLLs.</Description>
     <PackageProjectUrl>https://paperengineer.runasp.net/</PackageProjectUrl>
+    <PackageReleaseNotes>Revit 2022 package line. Includes the current Revit 2022 DLL set and build targets for RevitVersion-based reference resolution.</PackageReleaseNotes>
     <PackageTags>Revit;Autodesk;API;NuGet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Cazorlas/Revit_packages_all_versions</RepositoryUrl>
     <PackageOutputPath>..\artifacts</PackageOutputPath>
   </PropertyGroup>
 
