@@ -1,6 +1,6 @@
-# RevitPackagesAllVersions
+# Revit_packages_all_versions
 
-NuGet packaging project for bundling multiple Revit API DLL sets into one package.
+NuGet packaging project for bundling one or more Revit API DLL sets into one package.
 
 ## What this package does
 
@@ -15,7 +15,7 @@ NuGet packaging project for bundling multiple Revit API DLL sets into one packag
 .github/
   workflows/
 build/
-  RevitPackagesAllVersions.targets
+  Revit_packages_all_versions.targets
 revit/
   2019/
   2020/
@@ -26,8 +26,6 @@ revit/
   2025/
   2026/
   2027/
-scripts/
-  Sync-RevitDlls.ps1
 RevitPackagesAllVersions/
   RevitPackagesAllVersions.csproj
 RevitPackagesAllVersions.sln
@@ -37,26 +35,37 @@ RevitPackagesAllVersions.sln
 
 ```xml
 <PropertyGroup>
-  <RevitVersion>2024</RevitVersion>
+  <RevitVersion>2022</RevitVersion>
 </PropertyGroup>
 
 <ItemGroup>
-  <PackageReference Include="RevitPackagesAllVersions" Version="0.1.0" />
+  <PackageReference Include="Revit_packages_all_versions" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
 </ItemGroup>
 ```
 
-## Sync DLLs from a local Revit install
+Versioning convention:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\Sync-RevitDlls.ps1 -Version 2024 -Clean
-```
+- `2022.0.1`: current package release for Revit 2022
+- `2023.0.1`: next package line for Revit 2023 when that DLL set is ready
+- `2024.0.1`: same pattern for Revit 2024 and later
 
-Defaults:
+Important:
 
-- source: `C:\Program Files\Autodesk\Revit <Version>`
-- target: `.\revit\<Version>\`
+- You can reserve the same year-based versioning pattern for other Revit years.
+- Do not publish a year line until that year folder actually contains the required DLLs, especially `RevitAPI.dll`.
+- At any given time, it is fine if only one year folder is populated with real DLLs.
 
-The script includes the common top-level Revit DLLs and a few optional extras. You can extend its file map if your package needs more assemblies.
+## Current DLL inventory
+
+- `2019`: no DLLs yet
+- `2020`: no DLLs yet
+- `2021`: no DLLs yet
+- `2022`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
+- `2023`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
+- `2024`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFrameworkRes.resources.dll`
+- `2025`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
+- `2026`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`
+- `2027`: no DLLs yet
 
 ## Pack locally
 
@@ -79,5 +88,5 @@ The publish workflow is prepared for NuGet trusted publishing with OIDC.
 
 ## Notes
 
-- Update `PackageId`, `Authors`, and `Description` before first public publish.
 - Check Autodesk redistribution/licensing constraints yourself before pushing to a public feed.
+- This package uses a custom embedded license file, which NuGet supports for non-SPDX/custom license terms.

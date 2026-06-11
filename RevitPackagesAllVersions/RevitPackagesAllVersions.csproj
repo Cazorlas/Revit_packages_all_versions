@@ -1,16 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <IsPackable>true</IsPackable>
-    <NoWarn>$(NoWarn);NU5128</NoWarn>
-    <PackageId>RevitPackagesAllVersions</PackageId>
-    <Version>0.1.0</Version>
-    <Authors>ThinkPad</Authors>
+    <NoWarn>$(NoWarn);NU5128;NU5100</NoWarn>
+    <PackageId>Revit_packages_all_versions</PackageId>
+    <PackageReleaseYear Condition="'$(PackageReleaseYear)' == ''">2022</PackageReleaseYear>
+    <PackageReleaseMinor Condition="'$(PackageReleaseMinor)' == ''">0</PackageReleaseMinor>
+    <PackageReleasePatch Condition="'$(PackageReleasePatch)' == ''">1</PackageReleasePatch>
+    <Version Condition="'$(Version)' == ''">$(PackageReleaseYear).$(PackageReleaseMinor).$(PackageReleasePatch)</Version>
+    <Authors>PaperEngineer</Authors>
     <Company>PaperEngineer</Company>
-    <Description>Multi-version Revit API DLL bundle package. Set RevitVersion in the consuming project to select version-specific Autodesk DLLs.</Description>
+    <Description>Year-versioned Revit API DLL bundle package. Set RevitVersion in the consuming project to select version-specific Autodesk DLLs.</Description>
+    <PackageProjectUrl>https://paperengineer.runasp.net/</PackageProjectUrl>
     <PackageTags>Revit;Autodesk;API;NuGet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -22,8 +26,12 @@
   <ItemGroup>
     <None Include="..\README.md" Link="README.md" Pack="true" PackagePath="\" />
     <None Include="..\LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
-    <None Include="..\build\RevitPackagesAllVersions.targets" Link="RevitPackagesAllVersions.targets" Pack="true" PackagePath="build\" />
-    <None Include="..\build\RevitPackagesAllVersions.targets" Link="RevitPackagesAllVersions.targets" Pack="true" PackagePath="buildTransitive\" />
-    <None Include="..\revit\**\*.*" Link="revit\%(RecursiveDir)%(Filename)%(Extension)" Pack="true" PackagePath="revit\" />
+    <None Include="..\build\Revit_packages_all_versions.targets" Pack="true" PackagePath="build\" />
+    <None Include="..\build\Revit_packages_all_versions.targets" Pack="true" PackagePath="buildTransitive\" />
+    <Content Include="..\revit\**\*.*" Pack="true" PackagePath="revit\%(RecursiveDir)%(Filename)%(Extension)" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="..\revit\2023\_placeholder.txt" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,23 @@
+<Project>
+  <PropertyGroup>
+    <RevitVersion Condition="'$(RevitVersion)' == ''">2022</RevitVersion>
+    <_RevitPackageVersionDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\revit\$(RevitVersion)'))</_RevitPackageVersionDir>
+    <DefineConstants>$(DefineConstants);REVIT$(RevitVersion)</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(_RevitPackageVersionDir)\RevitAPI.dll')">
+    <_RevitPackageDll Include="$(_RevitPackageVersionDir)\*.dll" />
+
+    <Reference Include="@(_RevitPackageDll)">
+      <HintPath>%(Identity)</HintPath>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="_ValidateRevitPackageVersion" BeforeTargets="ResolveReferences">
+    <Error
+      Condition="!Exists('$(_RevitPackageVersionDir)\RevitAPI.dll')"
+      Text="Revit_packages_all_versions does not contain a populated DLL folder for RevitVersion='$(RevitVersion)'. Expected RevitAPI.dll under '$(_RevitPackageVersionDir)'." />
+  </Target>
+</Project>

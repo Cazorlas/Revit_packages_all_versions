@@ -24,13 +24,32 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: Restore
-        run: dotnet restore .\RevitPackagesAllVersions.sln
+        run: dotnet restore .\RevitPackagesAllVersions\RevitPackagesAllVersions.csproj
 
       - name: Build
-        run: dotnet build .\RevitPackagesAllVersions.sln -c Release --no-restore
+        run: dotnet build .\RevitPackagesAllVersions\RevitPackagesAllVersions.csproj -c Release --no-restore
+
+      - name: Resolve package version
+        id: version
+        shell: pwsh
+        run: |
+          $packageVersion = ""
+          if ("${{ github.ref_type }}" -eq "tag") {
+            $packageVersion = "${{ github.ref_name }}"
+            if ($packageVersion.StartsWith("v")) {
+              $packageVersion = $packageVersion.Substring(1)
+            }
+          }
+
+          "package_version=$packageVersion" >> $env:GITHUB_OUTPUT
 
       - name: Pack
+        if: steps.version.outputs.package_version == ''
         run: dotnet pack .\RevitPackagesAllVersions\RevitPackagesAllVersions.csproj -c Release --no-build -o .\artifacts
+
+      - name: Pack from tag version
+        if: steps.version.outputs.package_version != ''
+        run: dotnet pack .\RevitPackagesAllVersions\RevitPackagesAllVersions.csproj -c Release --no-build -o .\artifacts -p:Version=${{ steps.version.outputs.package_version }}
 
       - name: NuGet login (OIDC)
         id: login
