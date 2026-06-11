@@ -7,15 +7,16 @@
     <IsPackable>true</IsPackable>
     <NoWarn>$(NoWarn);NU5128;NU5100</NoWarn>
     <PackageId>Revit_packages_all_versions</PackageId>
-    <PackageReleaseYear Condition="'$(PackageReleaseYear)' == ''">2023</PackageReleaseYear>
+    <PackageReleaseYear Condition="'$(PackageReleaseYear)' == ''">2022</PackageReleaseYear>
     <PackageReleaseMinor Condition="'$(PackageReleaseMinor)' == ''">0</PackageReleaseMinor>
-    <PackageReleasePatch Condition="'$(PackageReleasePatch)' == ''">1</PackageReleasePatch>
+    <PackageReleasePatch Condition="'$(PackageReleasePatch)' == ''">3</PackageReleasePatch>
     <Version Condition="'$(Version)' == ''">$(PackageReleaseYear).$(PackageReleaseMinor).$(PackageReleasePatch)</Version>
     <Authors>PaperEngineer</Authors>
     <Company>PaperEngineer</Company>
     <Copyright>Copyright (c) PaperEngineer</Copyright>
     <Description>Year-versioned Revit API DLL bundle package. Set RevitVersion in the consuming project to select version-specific Autodesk DLLs.</Description>
     <PackageProjectUrl>https://paperengineer.runasp.net/</PackageProjectUrl>
+    <PackageIcon>revit128x128.png</PackageIcon>
     <PackageReleaseNotes>Revit 2023 package line. Includes the current Revit 2023 DLL set and build targets for RevitVersion-based reference resolution.</PackageReleaseNotes>
     <PackageTags>Revit;Autodesk;API;NuGet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -29,6 +30,7 @@
   <ItemGroup>
     <None Include="..\README.md" Link="README.md" Pack="true" PackagePath="\" />
     <None Include="..\LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
+    <None Include="revit128x128.png" Link="revit128x128.png" Pack="true" PackagePath="\" />
     <None Include="..\build\Revit_packages_all_versions.targets" Pack="true" PackagePath="build\" />
     <None Include="..\build\Revit_packages_all_versions.targets" Pack="true" PackagePath="buildTransitive\" />
     <Content Include="..\revit\**\*.*" Pack="true" PackagePath="revit\%(RecursiveDir)%(Filename)%(Extension)" Visible="false" />
