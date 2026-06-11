@@ -35,7 +35,7 @@ RevitPackagesAllVersions.sln
 
 ```xml
 <PropertyGroup>
-  <RevitVersion>2023</RevitVersion>
+  <RevitVersion>2024</RevitVersion>
 </PropertyGroup>
 
 <ItemGroup>
@@ -45,9 +45,24 @@ RevitPackagesAllVersions.sln
 
 Versioning convention:
 
-- `2023.0.1`: current package release for Revit 2023
-- `2024.0.1`: next package line for Revit 2024 when that DLL set is ready
-- `2025.0.1`: same pattern for Revit 2025 and later
+- `2024.0.1`: current package release for Revit 2024
+- `2025.0.1`: next package line for Revit 2025 when that DLL set is ready
+- `2026.0.1`: same pattern for Revit 2026 and later
+
+## Release convention
+
+- Package versions follow: `YYYY.0.PATCH`
+- `YYYY` is the Revit year line, for example `2022`, `2023`, or `2024`
+- `PATCH` increases whenever that same year line is updated
+- each year line should only ship DLLs from its matching `revit/<year>/` folder
+
+Examples:
+
+- `2022.0.1`: first public package for Revit 2022
+- `2022.0.2`: second update for the Revit 2022 line
+- `2022.0.3`: another update for the Revit 2022 line
+- `2023.0.1`: first public package for Revit 2023
+- `2023.0.2`: second update for the Revit 2023 line
 
 Important:
 
