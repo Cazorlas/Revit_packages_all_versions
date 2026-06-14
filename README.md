@@ -72,7 +72,7 @@ Important:
 
 ## Current DLL inventory
 
-- `2019`: no DLLs yet
+- `2019`: `AdWindows.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`; `UIFramework.dll`
 - `2020`: no DLLs yet
 - `2021`: no DLLs yet
 - `2022`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`

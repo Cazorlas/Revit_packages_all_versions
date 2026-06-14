@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <NoWarn>$(NoWarn);NU5128;NU5100</NoWarn>
     <PackageId>Revit_packages_all_versions</PackageId>
-    <PackageReleaseYear Condition="'$(PackageReleaseYear)' == ''">2027</PackageReleaseYear>
+    <PackageReleaseYear Condition="'$(PackageReleaseYear)' == ''">2019</PackageReleaseYear>
     <PackageReleaseMinor Condition="'$(PackageReleaseMinor)' == ''">0</PackageReleaseMinor>
     <PackageReleasePatch Condition="'$(PackageReleasePatch)' == ''">1</PackageReleasePatch>
     <Version Condition="'$(Version)' == ''">$(PackageReleaseYear).$(PackageReleaseMinor).$(PackageReleasePatch)</Version>
@@ -18,7 +18,7 @@
     <Description>Year-versioned Revit API DLL bundle package. Set RevitVersion in the consuming project to select version-specific Autodesk DLLs.</Description>
     <PackageProjectUrl>https://paperengineer.runasp.net/</PackageProjectUrl>
     <PackageIcon>revit128x128.png</PackageIcon>
-    <PackageReleaseNotes>Revit 2027 package line. Includes the current Revit 2027 DLL set, NuGet package icon, and build targets for RevitVersion-based reference resolution.</PackageReleaseNotes>
+    <PackageReleaseNotes>Revit 2019 package line. Includes the current Revit 2019 DLL set, NuGet package icon, and build targets for RevitVersion-based reference resolution.</PackageReleaseNotes>
     <PackageTags>Revit;Autodesk;API;NuGet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -37,7 +37,5 @@
     <Content Include="..\revit\**\*.*" Pack="true" PackagePath="revit\%(RecursiveDir)%(Filename)%(Extension)" Visible="false" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="..\revit\2023\_placeholder.txt" />
-  </ItemGroup>
+
 </Project>
