@@ -17,7 +17,7 @@ NuGet packaging project for bundling one or more Revit API DLL sets into one pac
 build/
   Revit_packages_all_versions.targets
 revit/
-  2019/
+  2020/
   2020/
   2021/
   2022/
@@ -73,7 +73,7 @@ Important:
 ## Current DLL inventory
 
 - `2019`: `AdWindows.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`; `UIFramework.dll`
-- `2020`: no DLLs yet
+- `2020`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
 - `2021`: no DLLs yet
 - `2022`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
 - `2023`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
