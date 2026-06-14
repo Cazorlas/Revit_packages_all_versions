@@ -77,7 +77,7 @@ Important:
 - `2021`: no DLLs yet
 - `2022`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
 - `2023`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
-- `2024`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFrameworkRes.dll`
+- `2024`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
 - `2025`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`, `UIFramework.dll`
 - `2026`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`; `UIFramework.dll`
 - `2027`: `AdWindows.dll`, `DynamoCore.dll`, `DynamoRevitDS.dll`, `RevitAPI.dll`, `RevitAPIIFC.dll`, `RevitAPIUI.dll`; `UIFramework.dll`
