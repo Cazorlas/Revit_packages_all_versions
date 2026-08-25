@@ -56,7 +56,7 @@ jobs:
         run: dotnet pack .\RevitPackagesAllVersions\RevitPackagesAllVersions.csproj -c Release --no-build -o .\artifacts -p:Version=${{ steps.version.outputs.package_version }}
 
       - name: Push package to GitHub Packages
-        run: dotnet nuget push ".\artifacts\*.nupkg" --source "https://nuget.pkg.github.com/Cazorlas/index.json" --skip-duplicate
+        run: dotnet nuget push ".\artifacts\*.nupkg" --source "https://nuget.pkg.github.com/Cazorlas/index.json" --skip-duplicate --timeout 1800
 
       - name: NuGet login (OIDC)
         id: login
